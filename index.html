@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en" data-variant="v7-15-meteors">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <meta name="description" content="LUNC TEAMS — Red vs Blue validators. Two factions. One purpose. Revenue-funded burns + airdrops with on-chain proof." />
+  <title>LUNC TEAMS — Red vs Blue</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">
+        <span class="brand-title">LUNC TEAMS</span>
+        <span class="brand-sub">Red vs Blue Validators</span>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#missions">Missions</a>
+      <a href="#how">How it works</a>
+      <a href="#independence">Independence</a>
+      <a href="#proof">Proof</a>
+      <a href="#faq">FAQ</a>
+      <a href="#coming-soon">Coming soon</a>
+    </nav>
+
+    <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      
+      <div class="hero-fx" aria-hidden="true">
+        <div class="vs-fx"></div>
+        <canvas id="sparks"></canvas>
+      </div>
+<div class="hero-inner">
+        <div class="hero-top">
+          <div class="chips">
+            <span class="chip chip-red">USTC burn ⇄ LUNC airdrop</span>
+            <span class="chip chip-blue">LUNC burn ⇄ USTC airdrop</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="glow">RED</span>
+            <span class="vs">VS</span>
+            <span class="glow blue">BLUE</span>
+          </h1>
+          <p class="hero-tagline">
+            Two factions. One mission. Burns and delegator airdrops funded by validator revenue — verifiable on-chain.</p>
+
+          <div class="cta-row">
+            <a class="btn btn-red" href="#missions">
+              Join Red Team
+              <span class="btn-sub">The Restorer</span>
+            </a>
+            <a class="btn btn-blue" href="#missions">
+              Join Blue Team
+              <span class="btn-sub">The Incinerator</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-k">Monthly cycle</div>
+              <div class="metric-v">Snapshot → Burn → Airdrop</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k">Transparency</div>
+              <div class="metric-v">TX links + cycle report</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k">Infrastructure</div>
+              <div class="metric-v">Unified Tier‑3 co‑location</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-logos">
+          <div class="logo-card red">
+            <img src="assets/red.png" alt="Red Team logo" />
+            <div class="logo-card-text">
+              <div class="logo-card-title">Red Team</div>
+              <div class="logo-card-sub">The Restorer</div>
+            </div>
+          </div>
+
+          <div class="logo-card blue">
+            <img src="assets/blue.png" alt="Blue Team logo" />
+            <div class="logo-card-text">
+              <div class="logo-card-title">Blue Team</div>
+              <div class="logo-card-sub">The Incinerator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom-fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- MISSIONS -->
+    <section id="missions" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Choose your mission</h2>
+        <p class="section-sub">
+          Red and Blue are operated by different operators in the same group. Same standards, different missions.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article id="red" class="card card-red reveal">
+          <header class="card-head">
+            <div class="badge badge-red">🔴 RED</div>
+            <h3 class="card-title">The Restorer</h3>
+            <p class="card-sub">Fighting for the repeg.</p>
+          </header>
+
+          <div class="card-body">
+            <ul class="bullets">
+              <li><strong>Burn:</strong> USTC (burns funded from our revenue)</li>
+              <li><strong>Airdrop:</strong> LUNC to delegators (monthly)</li>
+              <li><strong>Proof:</strong> TX links + cycle report posted on our Telegram</li>
+            </ul>
+
+            <div class="callout">
+              <div class="callout-title">What you’re backing</div>
+              <p>
+                A mission-first validator: consistent USTC burns + a clean, predictable monthly LUNC airdrop.
+              </p>
+            </div>
+</div>
+        </article>
+
+        <article id="blue" class="card card-blue reveal">
+          <header class="card-head">
+            <div class="badge badge-blue">🔵 BLUE</div>
+            <h3 class="card-title">The Incinerator</h3>
+            <p class="card-sub">Fighting supply.</p>
+          </header>
+
+          <div class="card-body">
+            <ul class="bullets">
+              <li><strong>Burn:</strong> LUNC (burns funded from our revenue)</li>
+              <li><strong>Airdrop:</strong> USTC to delegators (monthly)</li>
+              <li><strong>Proof:</strong> TX links + cycle report posted on our Telegram</li>
+            </ul>
+
+            <div class="callout">
+              <div class="callout-title">What you’re backing</div>
+              <p>
+                Supply pressure, transparently: consistent LUNC burns paired with monthly USTC airdrops to delegators.
+              </p>
+            </div>
+</div>
+        </article>
+      </div>
+
+      <div class="note reveal">
+        <div class="note-title">Why we airdrop</div>
+        <p>
+          We use airdrops to attract and reward long‑term delegators — so we can fund consistent burns that support the recovery of USTC and LUNC, while also helping spotlight new LUNC projects. Red + Blue operate as a two‑validator, multi‑tier strategy: two independent missions working in parallel toward long‑term chain health.
+        </p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section alt">
+      <div class="section-head">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">Simple. Verifiable. Repeated.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="step">
+          <div class="step-n">01</div>
+          <div class="step-c">
+            <h3>Snapshot</h3>
+            <p>We record eligible delegations at a published time each cycle.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">02</div>
+          <div class="step-c">
+            <h3>Burn</h3>
+            <p>Each team executes its burn (USTC for Red / LUNC for Blue), funded from our revenue.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">03</div>
+          <div class="step-c">
+            <h3>Airdrop</h3>
+            <p>Each team distributes its monthly airdrop (LUNC for Red / USTC for Blue) to delegators.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">04</div>
+          <div class="step-c">
+            <h3>Telegram Proof</h3>
+            <p>We publish transaction links and a cycle report so anyone can verify on-chain on our Telegram.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <div class="note-title">No smoke, no mirrors</div>
+        <p>
+          Everything that matters is on-chain: burns, airdrops, and the schedule. Your delegation is your vote.
+        </p>
+      </div>
+
+      <div class="wallets reveal" aria-label="Wallet links">
+        <div class="wallets-title">Wallets to stake with</div>
+        <div class="wallets-sub tiny">Use any of these wallets to stake to Red or Blue.</div>
+        <div class="wallets-row">
+          <a class="wallet-btn" href="https://www.keplr.app/" target="_blank" rel="noreferrer">Keplr</a>
+          <a class="wallet-btn" href="https://station.hexxagon.io/" target="_blank" rel="noreferrer">Station</a>
+          <a class="wallet-btn" href="https://trustwallet.com/" target="_blank" rel="noreferrer">Trust Wallet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDEPENDENCE / INFRA -->
+    <section id="independence" class="section">
+      <div class="section-head">
+        <h2 class="section-title">Separate operators, shared backbone</h2>
+        <p class="section-sub">
+          Designed separation for accountability — while keeping enterprise-grade uptime and low latency.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <article class="card reveal">
+          <h3>Why we’re separated</h3>
+          <p>
+            Red Team and Blue Team are operated by different operators within the same validator group.
+            Each team maintains independent keys, policies, and execution — so no single operator controls both missions.
+          </p>
+          <ul class="bullets">
+            <li>Independent validator keys</li>
+            <li>Independent burn + airdrop execution</li>
+            <li>Independent operational decisions</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h3>Why we share infrastructure</h3>
+          <p>
+            Our Team Colors infrastructure is hosted in a unified Tier‑3 co‑location suite to ensure maximum
+            cross-node communication speed and low-latency oracle voting. Sharing the facility improves reliability —
+            without combining operator control.
+          </p>
+          <ul class="bullets">
+            <li>Tier‑3 power, cooling, and upstream connectivity</li>
+            <li>Standardized monitoring and security baseline</li>
+            <li>Reduced jitter for consistent oracle participation</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section id="proof" class="section alt">
+      <div class="section-head">
+        <h2 class="section-title">Proof & transparency</h2>
+        <p class="section-sub">
+          We publish transaction links and a cycle report after each cycle — on our Telegram.
+        </p>
+      </div>
+
+      <div class="proof-grid reveal">
+        <div class="proof-card">
+          <h3>Cycle report</h3>
+          <p>
+            Snapshot time, totals, and a short summary for the month — one place to follow the month’s snapshot, burns, and airdrops.
+          </p>
+          <a class="link" href="https://t.me/REPLACE_WITH_YOUR_TELEGRAM" target="_blank" rel="noreferrer">Open Telegram →</a>
+        </div>
+
+        <div class="proof-card">
+          <h3>On‑chain transactions</h3>
+          <p>
+            Burns and airdrops are verifiable by anyone. We post both teams’ burn and airdrop transaction links in our Telegram after each cycle — open them in your explorer of choice to verify.
+          </p>
+</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="section-head">
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-sub">Quick answers for new delegators.</p>
+      </div>
+
+      <div class="faq reveal" role="list">
+        <details open>
+          <summary>Are Red and Blue run by the same person?</summary>
+          <p>
+            No. Red Team and Blue Team are operated by different operators inside a single group.
+            We share a co‑location backbone, but maintain independent keys and independent execution.
+          </p>
+        </details>
+
+        <details>
+          <summary>Where do burns and airdrops come from?</summary>
+          <p>
+            Burns and airdrops are funded from our validator revenue (commission and operational allocations).
+            After each cycle we publish transaction links and a short report on Telegram so anyone can verify on-chain.
+          </p>
+        </details>
+
+        <details>
+          <summary>How often do you run cycles?</summary>
+          <p>
+            Monthly by default: snapshot → burn → airdrop → proof posted to Telegram. If the schedule changes, it will be announced in advance.
+          </p>
+        </details>
+
+<details>
+          <summary>Can you guarantee results like repeg?</summary>
+          <p>No one can guarantee a repeg or price outcomes. What we can do is support recovery with consistent, transparent execution: USTC burns on Red, LUNC burns on Blue, and monthly delegator airdrops — all funded from our revenue and verifiable via transaction links and cycle reports posted on Telegram.</p>
+        </details>
+      </div>
+    </section>
+
+
+    <!-- COMING SOON -->
+    <section id="coming-soon" class="section alt">
+      <div class="section-head">
+        <h2 class="section-title">Coming soon</h2>
+        <p class="section-sub">Keep an eye on the horizon.</p>
+      </div>
+
+      <div class="coming-soon reveal" role="note" aria-label="Coming soon teaser">
+        <div class="coming-text">
+          <h3>Something is brewing…</h3>
+          <p>A new drop is stalking the help desk. When it lands, you’ll know. Stay tuned in our Telegram.</p>
+        </div>
+        <img class="shib" src="assets/bnb.png" alt="BNB coin teaser" />
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-title">LUNC TEAMS</div>
+          <div class="footer-sub">Red vs Blue — mission validators</div>
+        </div>
+        <div class="footer-right">
+          <a href="#top">Back to top</a>
+          <span class="dot">•</span>
+          <a href="https://t.me/REPLACE_WITH_YOUR_TELEGRAM" target="_blank" rel="noreferrer">Telegram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="tiny">© <span id="year"></span> LUNC TEAMS. Not financial advice. Verify on-chain.</span>
+      </div>
+    </footer>
+  </main>
+
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="#missions">Missions</a>
+    <a href="#how">How it works</a>
+    <a href="#independence">Independence</a>
+    <a href="#proof">Proof</a>
+    <a href="#faq">FAQ</a>
+      <a href="#coming-soon">Coming soon</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
