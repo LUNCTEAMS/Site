@@ -1,321 +1,638 @@
-<!doctype html>
-<html lang="en" data-variant="v7-15-meteors">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0b0f1a" />
-  <meta name="description" content="LUNC TEAMS — Validator Teams. Joint validator effort to burn $LUNC and $USTC and reward delegators with $LUNC + $USTC airdrops. High uptime, tier infrastructure, and on-chain proof every cycle." />
-  <title>LUNC TEAMS — Validator Teams</title>
+:root{
+  --bg:#070a12;
+  --bg2:#0b1020;
+  --text:#e8eefc;
+  --muted:rgba(232,238,252,.72);
 
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  --red:#ff3a3a;
+  --red2:#b0002a;
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
+  --blue:#3aa0ff;
+  --blue2:#0037b3;
 
-<body>
-  <canvas id="stars"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
+  --card:rgba(14,19,34,.72);
+  --stroke:rgba(255,255,255,.10);
 
-  <header class="topbar">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-text">
-        <span class="brand-title">LUNC TEAMS</span>
-        <span class="brand-sub">Validator Teams</span>
-      </span>
-    </a>
+  --shadow: 0 20px 60px rgba(0,0,0,.55);
+  --radius: 22px;
 
-    <nav class="nav">
-      <a href="#validators">Programs</a>
-      <a href="#how">How it works</a>
-      <a href="#proof">Proof</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+  --font-display: "Orbitron", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
 
-    <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: radial-gradient(1200px 800px at 50% -10%, rgba(58,160,255,.20), transparent 60%),
+              radial-gradient(1200px 800px at 50% 10%, rgba(255,58,58,.18), transparent 55%),
+              linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  color:var(--text);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+}
 
-  <main id="top">
-    <!-- HERO (PRO / CLEAN) -->
-    <section class="hero hero-pro" aria-label="Hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+a{color:inherit; text-decoration:none}
+a:hover{opacity:.92}
 
-      <div class="hero-fx" aria-hidden="true">
-        <canvas id="sparks"></canvas>
-      </div>
+#stars{
+  position:fixed; inset:0;
+  width:100%; height:100%;
+  z-index:-3;
+}
 
-      <div class="hero-inner">
-        <div class="hero-top hero-top-pro">
-          <div class="hero-header">
-            <div class="chips hero-pills">
-              <span class="chip">🔥 Daily burns</span>
-              <span class="chip">🎁 Monthly airdrops</span>
-              <span class="chip">✅ On-chain proof</span>
-            </div>
+.scanlines{
+  position:fixed; inset:0;
+  pointer-events:none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.03) 0px,
+    rgba(255,255,255,.03) 1px,
+    rgba(0,0,0,0) 3px,
+    rgba(0,0,0,0) 6px
+  );
+  mix-blend-mode:overlay;
+  opacity:.18;
+  z-index:-2;
+}
 
-            <h1 class="hero-title hero-title-pro">Validator Teams</h1>
+.vignette{
+  position:fixed; inset:0;
+  pointer-events:none;
+  background: radial-gradient(65% 55% at 50% 40%, transparent 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.75) 100%);
+  z-index:-1;
+}
 
-            <p class="hero-tagline hero-tagline-pro">
-              A joint validator effort to burn <strong>$LUNC</strong> and <strong>$USTC</strong>, and reward delegators with
-              <strong>$LUNC</strong> + <strong>$USTC</strong> airdrops — funded by validator revenue and proven on-chain.
-            </p>
+.topbar{
+  position:sticky; top:0;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px;
+  background: rgba(5,8,16,.55);
+  backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:50;
+}
 
-            <ul class="hero-points">
-              <li><strong>Whale-friendly operations</strong> — stable performance and consistent participation.</li>
-              <li><strong>Top-tier uptime</strong> — 24/7 monitoring with fast incident response.</li>
-              <li><strong>Pro infrastructure</strong> — low-latency setup with redundancy and reliability.</li>
-            </ul>
+.brand{
+  display:flex; gap:12px; align-items:center;
+}
+.brand-mark{
+  width:40px; height:40px; border-radius:999px;
+  background: url("assets/lunc-coin.svg") center/cover no-repeat;
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+  position:relative;
+}
+.brand-mark:after{ content:none; }
 
-            <div class="cta-row hero-cta-pro">
-              <a class="btn btn-blue" href="#validators">
-                View Programs
-                <span class="btn-sub">Benefits + rules</span>
-              </a>
-              <a class="btn btn-red" href="https://t.me/luncteam" target="_blank" rel="noreferrer">
-                Join Telegram
-                <span class="btn-sub">TX proof every cycle</span>
-              </a>
-            </div>
-          </div>
+.brand-title{
+  font-family:var(--font-display);
+  letter-spacing:.12em;
+  font-weight:800;
+  font-size:14px;
+  display:block;
+}
+.brand-sub{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:2px;
+}
 
-          <div class="hero-features">
-            <div class="feature">
-              <div class="feature-k">High uptime</div>
-              <div class="feature-v">24/7 monitoring + fast response</div>
-            </div>
-            <div class="feature">
-              <div class="feature-k">Top-tier infrastructure</div>
-              <div class="feature-v">Tier-3 co-location • low latency • redundancy</div>
-            </div>
-            <div class="feature">
-              <div class="feature-k">Whale-ready</div>
-              <div class="feature-v">Stable ops • consistent participation</div>
-            </div>
-          </div>
+.nav{display:flex; gap:18px; align-items:center}
+.nav a{
+  font-size:13px;
+  color:rgba(232,238,252,.78);
+}
+.nav a:hover{color:rgba(232,238,252,.95)}
 
-          <div class="hero-cycle">
-            Monthly cycle: <strong>Snapshot → Burn → Airdrop → Report + TX links</strong>
-          </div>
-        </div>
-      </div>
+.menu-btn{
+  display:none;
+  width:44px; height:44px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;
+  background: rgba(10,14,26,.35);
+  cursor:pointer;
+  padding:12px;
+}
+.menu-btn span{
+  display:block;
+  height:2px;
+  margin:4px 0;
+  background: rgba(232,238,252,.90);
+  border-radius:2px;
+}
 
-      <div class="hero-bottom-fade" aria-hidden="true"></div>
-    </section>
+.mobile-menu{
+  position:fixed;
+  right:18px; top:70px;
+  width:min(260px, calc(100vw - 36px));
+  background: rgba(10,14,26,.85);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  padding:12px;
+  box-shadow: var(--shadow);
+  display:none;
+  z-index:60;
+}
+.mobile-menu a{
+  display:block;
+  padding:12px 12px;
+  border-radius:14px;
+  color:rgba(232,238,252,.88);
+}
+.mobile-menu a:hover{
+  background: rgba(255,255,255,.06);
+}
 
-    <!-- VALIDATORS -->
-    <section id="validators" class="section">
-      <div class="section-head">
-        <h2 class="section-title">Validator programs</h2>
-        <p class="section-sub">
-          Two programs under one standard: revenue-funded burns + delegator rewards + transparent proof.
-          Validator names and logos can change — the programs and rules stay clear.
-        </p>
-      </div>
+/* =========================
+   HERO (PROFESSIONAL REBUILD)
+   ========================= */
+.hero{
+  position:relative;
+  min-height: calc(100svh - 72px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 104px 18px 64px;
+}
 
-      <div class="grid-2">
-        <article class="card reveal">
-          <header class="card-head">
-            <h3 class="card-title">Program A — LUNC Airdrops</h3>
-            <p class="card-sub"><strong>Daily $USTC burns</strong> + <strong>Monthly $LUNC airdrops</strong></p>
-          </header>
+.hero-bg{
+  position:absolute; inset:-2px;
+  background-image:
+    linear-gradient(90deg, rgba(255,58,58,.35), rgba(58,160,255,.35)),
+    url("assets/hero-bg.png");
+  background-size:cover;
+  background-position:center;
+  filter:saturate(1.05) contrast(1.05);
+  z-index:-1;
+}
 
-          <div class="card-body">
-            <ul class="bullets">
-              <li><strong>Burn:</strong> $USTC (funded from validator revenue)</li>
-              <li><strong>Airdrop:</strong> $LUNC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> uptime-first, monitored 24/7</li>
-              <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
-            </ul>
+.hero:before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(900px 600px at 50% 35%, rgba(0,0,0,.25), rgba(0,0,0,.75));
+  z-index:-1;
+}
 
-            <div class="callout">
-              <div class="callout-title">Best for</div>
-              <p>Delegators who want ongoing USTC burn support plus monthly LUNC rewards.</p>
-            </div>
+/* single column, centered */
+.hero-inner{
+  width:min(1040px, 100%);
+  display:block;
+  position:relative;
+  z-index:2;
+}
 
-            <div class="tiny">Current validator name: <strong>WallStreetBets</strong></div>
-          </div>
-        </article>
+.hero-top{
+  position:relative;
+  overflow:hidden;
+  padding: 42px 40px;
+  border-radius: 26px;
+  background: rgba(8,10,18,.46);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow: 0 26px 80px rgba(0,0,0,.62);
+  max-width: 920px;
+  margin: 0 auto;
+}
 
-        <article class="card reveal">
-          <header class="card-head">
-            <h3 class="card-title">Program B — USTC Airdrops</h3>
-            <p class="card-sub"><strong>Daily $LUNC burns</strong> + <strong>Monthly $USTC airdrops</strong></p>
-          </header>
+.hero-top::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 18% 20%, rgba(255,58,58,.22), transparent 62%),
+    radial-gradient(900px 520px at 82% 22%, rgba(58,160,255,.18), transparent 62%),
+    linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,0));
+  opacity:.95;
+  mix-blend-mode: screen;
+}
 
-          <div class="card-body">
-            <ul class="bullets">
-              <li><strong>Burn:</strong> $LUNC (funded from validator revenue)</li>
-              <li><strong>Airdrop:</strong> $USTC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> low latency, consistent participation</li>
-              <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
-            </ul>
+.hero-top > *{ position:relative; z-index:1; }
 
-            <div class="callout">
-              <div class="callout-title">USTC airdrop rule</div>
-              <p>Minimum <strong>40M $LUNC</strong> staked to qualify for <strong>$USTC</strong> airdrops.</p>
-            </div>
+/* Pills */
+.chips{
+  display:flex; flex-wrap:wrap; gap:10px;
+  margin-bottom: 18px;
+}
+.chip{
+  font-size:13px;
+  padding:9px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.25);
+  color: rgba(232,238,252,.86);
+}
 
-            <div class="tiny">Current validator name: <strong>Kraken Node</strong></div>
-          </div>
-        </article>
-      </div>
+/* Cleaner title: less letter spacing, no forced flex wrap */
+.hero-title{
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: .08em;
+  margin: 0;
+  font-size: clamp(44px, 5.4vw, 72px);
+  line-height: 1.06;
+}
 
-      <div class="note reveal">
-        <div class="note-title">Why stake with us</div>
-        <p>
-          Delegations help fund consistent burns and consistent rewards. We keep it simple: transparent cycles,
-          verifiable transactions, and clear rules. If a schedule or rule changes, it’s announced in advance and reflected in the cycle report.
-        </p>
-      </div>
-    </section>
+/* better paragraph rhythm */
+.hero-tagline{
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(232,238,252,.84);
+  max-width: 70ch;
+}
 
-    <!-- HOW IT WORKS -->
-    <section id="how" class="section alt">
-      <div class="section-head">
-        <h2 class="section-title">How it works</h2>
-        <p class="section-sub">Simple. Verifiable. Repeated.</p>
-      </div>
+/* Benefit bullets */
+.hero-points{
+  margin: 16px 0 0;
+  padding-left: 18px;
+  color: rgba(232,238,252,.82);
+}
+.hero-points li{ margin: 8px 0; line-height: 1.55; }
+.hero-points strong{ color: rgba(232,238,252,.96); }
 
-      <div class="timeline reveal">
-        <div class="step">
-          <div class="step-n">01</div>
-          <div class="step-c">
-            <h3>Snapshot</h3>
-            <p>We record eligible delegations at a published time each cycle.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-n">02</div>
-          <div class="step-c">
-            <h3>Burn</h3>
-            <p>Revenue-funded burns are executed (USTC via Program A / LUNC via Program B).</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-n">03</div>
-          <div class="step-c">
-            <h3>Airdrop</h3>
-            <p>Monthly airdrops are sent to eligible delegators ($LUNC and/or $USTC depending on program and rules).</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-n">04</div>
-          <div class="step-c">
-            <h3>Report</h3>
-            <p>We publish TX links and a cycle report so anyone can verify on-chain on our Telegram.</p>
-          </div>
-        </div>
-      </div>
+/* CTA row: remove “min-width 260” forcing cramped wrap */
+.cta-row{
+  display:flex; gap:12px;
+  margin-top: 18px;
+  flex-wrap:wrap;
+}
 
-      <div class="wallets reveal" aria-label="Wallet links">
-        <div class="wallets-title">How to stake</div>
-        <div class="wallets-sub tiny">Use any of these wallets to stake to a validator.</div>
-        <div class="wallets-row">
-          <a class="wallet-btn" href="https://www.keplr.app/" target="_blank" rel="noreferrer">Keplr</a>
-          <a class="wallet-btn" href="https://station.hexxagon.io/" target="_blank" rel="noreferrer">Station</a>
-          <a class="wallet-btn" href="https://trustwallet.com/" target="_blank" rel="noreferrer">Trust Wallet</a>
-        </div>
-      </div>
-    </section>
+.btn{
+  position:relative;
+  display:inline-flex;
+  flex-direction:column;
+  padding: 16px 18px;
+  border-radius: 20px;
+  border:1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.07);
+  font-weight:800;
+  letter-spacing:.02em;
+  box-shadow: 0 16px 46px rgba(0,0,0,.45);
+  overflow:hidden;
 
-    <!-- PROOF -->
-    <section id="proof" class="section">
-      <div class="section-head">
-        <h2 class="section-title">Proof & transparency</h2>
-        <p class="section-sub">Every cycle we publish transaction links and a short report on Telegram.</p>
-      </div>
+  /* NEW: make buttons flexible instead of forcing width */
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 360px;
+}
 
-      <div class="proof-grid reveal">
-        <div class="proof-card">
-          <h3>Cycle report</h3>
-          <p>Snapshot time, burn totals, airdrop totals, and quick notes — one place to follow each cycle.</p>
-          <a class="link" href="https://t.me/luncteam" target="_blank" rel="noreferrer">Open Telegram →</a>
-        </div>
+.btn-sub{
+  font-size: 13px;
+  opacity:.85;
+  margin-top: 3px;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.btn:before{
+  content:"";
+  position:absolute; inset:-2px;
+  background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,0));
+  opacity:.8;
+}
+.btn:hover{transform: translateY(-1px)}
+.btn-red{
+  background: linear-gradient(135deg, rgba(255,58,58,.22), rgba(0,0,0,.20));
+}
+.btn-blue{
+  background: linear-gradient(135deg, rgba(58,160,255,.22), rgba(0,0,0,.20));
+}
 
-        <div class="proof-card">
-          <h3>On-chain transactions</h3>
-          <p>Burns and airdrops are verifiable by anyone. We share TX links after each cycle so you can check them in your explorer of choice.</p>
-        </div>
-      </div>
+/* Feature row below CTA (separate, not cramped inside button area) */
+.hero-features{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
 
-      <div class="note reveal">
-        <div class="note-title">Simple promise</div>
-        <p>We don’t ask you to trust us — we ask you to verify. If it’s not on-chain, it doesn’t count.</p>
-      </div>
-    </section>
+.feature{
+  padding: 14px 14px;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.20);
+}
 
-    <!-- FAQ -->
-    <section id="faq" class="section alt">
-      <div class="section-head">
-        <h2 class="section-title">FAQ</h2>
-        <p class="section-sub">Quick answers for delegators.</p>
-      </div>
+.feature-k{
+  font-size: 11px;
+  color: rgba(232,238,252,.70);
+  letter-spacing:.08em;
+  text-transform: uppercase;
+}
 
-      <div class="faq reveal" role="list">
-        <details open>
-          <summary>What do I get by delegating?</summary>
-          <p>
-            You help fund revenue-backed burns and may qualify for monthly airdrops depending on the program and rules.
-            Proof is published each cycle with TX links and a report.
-          </p>
-        </details>
+.feature-v{
+  font-size: 14px;
+  margin-top: 4px;
+  color: rgba(232,238,252,.90);
+  font-weight:600;
+}
 
-        <details>
-          <summary>Where do burns and airdrops come from?</summary>
-          <p>
-            They’re funded from validator revenue (commission and operational allocations). We publish TX links after each cycle so anyone can verify.
-          </p>
-        </details>
+/* Cycle line */
+.hero-cycle{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(232,238,252,.78);
+  font-size: 13px;
+}
 
-        <details>
-          <summary>How often do you run cycles?</summary>
-          <p>Monthly by default: snapshot → burn → airdrop → report. Any schedule change is announced in advance.</p>
-        </details>
+/* keep your bottom fade */
+.hero-bottom-fade{
+  position:absolute; left:0; right:0; bottom:-2px;
+  height: 140px;
+  background: linear-gradient(180deg, rgba(7,10,18,0), rgba(7,10,18,1));
+  z-index:0;
+}
 
-        <details>
-          <summary>What is the 40M rule?</summary>
-          <p>The <strong>$USTC</strong> airdrop program requires a minimum of <strong>40M $LUNC</strong> staked to qualify.</p>
-        </details>
+/* =========================
+   REST OF YOUR ORIGINAL CSS
+   ========================= */
+.section{
+  padding: 84px 18px;
+}
+.section.alt{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.section-head{
+  width:min(1100px, 100%);
+  margin: 0 auto 22px;
+}
+.section-title{
+  margin:0;
+  font-family: var(--font-display);
+  letter-spacing:.10em;
+  font-weight: 800;
+  font-size: clamp(22px, 2.3vw, 34px);
+}
+.section-sub{
+  margin: 10px 0 0;
+  color: rgba(232,238,252,.74);
+  max-width: 70ch;
+}
 
-        <details>
-          <summary>Can you guarantee price outcomes or a repeg?</summary>
-          <p>No one can guarantee outcomes. What we can do is execute consistent, transparent burns and rewards — and publish proof on-chain every cycle.</p>
-        </details>
-      </div>
-    </section>
+.grid-2{
+  width:min(1100px, 100%);
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div class="footer-left">
-          <div class="footer-title">LUNC TEAMS</div>
-          <div class="footer-sub">Validator Teams — burns + airdrops with proof</div>
-        </div>
-        <div class="footer-right">
-          <a href="#top">Back to top</a>
-          <span class="dot">•</span>
-          <a href="https://t.me/luncteam" target="_blank" rel="noreferrer">Telegram</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="tiny">© <span id="year"></span> LUNC TEAMS. Not financial advice. Verify on-chain.</span>
-      </div>
-    </footer>
-  </main>
+.card{
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: var(--shadow);
+}
+.card h3{
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  letter-spacing:.08em;
+}
+.card p{color: rgba(232,238,252,.78); line-height: 1.55}
 
-  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="#validators">Programs</a>
-    <a href="#how">How it works</a>
-    <a href="#proof">Proof</a>
-    <a href="#faq">FAQ</a>
-  </div>
+.card-head{margin-bottom: 10px}
+.card-title{margin: 10px 0 6px}
+.card-sub{margin: 0; color: rgba(232,238,252,.74)}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.bullets{
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: rgba(232,238,252,.82);
+}
+.bullets li{margin: 8px 0; line-height: 1.55}
+.bullets strong{color: rgba(232,238,252,.96)}
+
+.callout{
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.10);
+}
+.callout-title{
+  font-family: var(--font-display);
+  letter-spacing:.08em;
+  font-weight: 800;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.timeline{
+  width:min(1100px, 100%);
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 12px;
+}
+.step{
+  padding: 18px;
+  border-radius: var(--radius);
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.10);
+}
+.step-n{
+  font-family: var(--font-display);
+  letter-spacing:.12em;
+  font-weight:800;
+  font-size: 14px;
+  opacity:.88;
+}
+.step h3{
+  margin: 10px 0 8px;
+  font-family: var(--font-display);
+  letter-spacing:.08em;
+  font-size: 14px;
+}
+.step p{margin:0; color: rgba(232,238,252,.76); line-height: 1.55}
+
+.note{
+  width:min(1100px, 100%);
+  margin: 16px auto 0;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.22);
+}
+.note-title{
+  font-family: var(--font-display);
+  letter-spacing:.10em;
+  font-weight: 800;
+}
+.note p{margin: 10px 0 0; color: rgba(232,238,252,.78); line-height: 1.55}
+
+/* Wallet links */
+.wallets{
+  width:min(1100px, 100%);
+  margin: 14px auto 0;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+}
+.wallets-title{
+  font-family: var(--font-display);
+  letter-spacing:.10em;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+.wallets-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.wallet-btn{
+  display:inline-flex;
+  align-items:center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  font-weight:700;
+}
+
+.proof-grid{
+  width:min(1100px, 100%);
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+}
+.proof-card{
+  padding: 22px;
+  border-radius: var(--radius);
+  background: rgba(0,0,0,.20);
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: var(--shadow);
+}
+.proof-card h3{
+  margin:0 0 10px;
+  font-family: var(--font-display);
+  letter-spacing:.08em;
+}
+.proof-card p{margin:0 0 14px; color: rgba(232,238,252,.76); line-height: 1.55}
+
+.link{
+  display:inline-flex;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  font-weight:700;
+}
+
+.tiny{
+  font-size: 12px;
+  color: rgba(232,238,252,.68);
+  margin-top: 12px;
+}
+
+.faq{
+  width:min(1100px, 100%);
+  margin: 0 auto;
+  display:grid;
+  gap: 10px;
+}
+details{
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.18);
+  border:1px solid rgba(255,255,255,.10);
+}
+summary{
+  cursor:pointer;
+  font-weight: 800;
+  letter-spacing:.02em;
+}
+details p{
+  margin: 10px 0 0;
+  color: rgba(232,238,252,.76);
+  line-height: 1.55;
+}
+
+.footer{
+  padding: 36px 18px 22px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background: rgba(0,0,0,.18);
+}
+.footer-inner{
+  width:min(1100px, 100%);
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+.footer-title{
+  font-family: var(--font-display);
+  letter-spacing:.12em;
+  font-weight: 800;
+}
+.footer-sub{
+  margin-top: 6px;
+  color: rgba(232,238,252,.72);
+  font-size: 13px;
+}
+.footer-right{
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  color: rgba(232,238,252,.76);
+}
+.dot{opacity:.6}
+.footer-bottom{
+  width:min(1100px, 100%);
+  margin: 14px auto 0;
+}
+.footer-bottom .tiny{margin:0}
+
+.reveal{
+  opacity:0;
+  transform: translateY(16px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .proof-grid{grid-template-columns: 1fr}
+  .timeline{grid-template-columns: 1fr 1fr}
+  .hero-features{grid-template-columns: 1fr}
+}
+
+@media (max-width: 720px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .hero{padding: 88px 14px 52px}
+  .hero-top{padding: 28px 22px}
+  .grid-2{grid-template-columns: 1fr}
+  .timeline{grid-template-columns: 1fr}
+  .btn{min-width: 100%; max-width: none}
+}
+
+/* --- FX stays BEHIND content --- */
+.hero { position: relative; }
+.hero-bg { z-index: -3 !important; }
+.hero:before { z-index: -2 !important; }
+.hero-fx{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index: -1;
+}
+.hero-inner{ position: relative; z-index: 2; }
+#sparks{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  opacity: .85;
+  mix-blend-mode: screen;
+}
