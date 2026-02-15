@@ -5,10 +5,7 @@
   --muted:rgba(232,238,252,.72);
 
   --red:#ff3a3a;
-  --red2:#b0002a;
-
   --blue:#3aa0ff;
-  --blue2:#0037b3;
 
   --card:rgba(14,19,34,.72);
   --stroke:rgba(255,255,255,.10);
@@ -24,8 +21,8 @@
 html,body{height:100%}
 body{
   margin:0;
-  background: radial-gradient(1200px 800px at 50% -10%, rgba(58,160,255,.16), transparent 60%),
-              radial-gradient(1200px 800px at 50% 10%, rgba(255,58,58,.12), transparent 55%),
+  background: radial-gradient(1200px 800px at 50% -10%, rgba(58,160,255,.20), transparent 60%),
+              radial-gradient(1200px 800px at 50% 10%, rgba(255,58,58,.18), transparent 55%),
               linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
   color:var(--text);
   font-family:var(--font-body);
@@ -78,10 +75,7 @@ a:hover{opacity:.92}
   width:40px; height:40px; border-radius:999px;
   background: url("assets/lunc-coin.svg") center/cover no-repeat;
   box-shadow: 0 12px 30px rgba(0,0,0,.45);
-  position:relative;
 }
-.brand-mark:after{ content:none; }
-
 .brand-title{
   font-family:var(--font-display);
   letter-spacing:.12em;
@@ -138,7 +132,7 @@ a:hover{opacity:.92}
 .mobile-menu a:hover{background: rgba(255,255,255,.06);}
 
 /* =========================
-   HERO (PROFESSIONAL)
+   HERO (FIXED / PROFESSIONAL)
    ========================= */
 .hero{
   position:relative;
@@ -163,7 +157,7 @@ a:hover{opacity:.92}
 .hero:before{
   content:"";
   position:absolute; inset:0;
-  background: radial-gradient(900px 600px at 50% 35%, rgba(0,0,0,.15), rgba(0,0,0,.78));
+  background: radial-gradient(900px 600px at 50% 35%, rgba(0,0,0,.15), rgba(0,0,0,.80));
   z-index:-1;
 }
 
@@ -175,15 +169,14 @@ a:hover{opacity:.92}
 
 .hero-layout{
   display:grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.25fr .75fr;
   gap: 18px;
   align-items:start;
 }
 
-/* Left panel: clean, minimal glass */
 .hero-panel{
   border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.10);
   background: rgba(8,10,18,.44);
   box-shadow: 0 26px 80px rgba(0,0,0,.55);
   backdrop-filter: blur(16px);
@@ -204,7 +197,7 @@ a:hover{opacity:.92}
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0;
-  font-size: clamp(38px, 4.6vw, 60px);
+  font-size: clamp(38px, 4.8vw, 60px);
   line-height: 1.06;
   color: rgba(232,238,252,.96);
 }
@@ -214,28 +207,41 @@ a:hover{opacity:.92}
   font-size: 16px;
   line-height: 1.7;
   color: rgba(232,238,252,.82);
-  max-width: 70ch;
+  max-width: 72ch;
 }
 
-.hero-badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top: 16px;
+.kpi-grid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
 }
 
-.badge-pill{
-  padding: 9px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.20);
-  color: rgba(232,238,252,.82);
+.kpi{
+  padding: 14px 14px;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.18);
+}
+
+.kpi-k{
+  font-size: 11px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(232,238,252,.62);
+}
+
+.kpi-v{
+  margin-top: 6px;
   font-size: 13px;
+  color: rgba(232,238,252,.84);
+  line-height: 1.45;
   font-weight: 600;
 }
 
 .cta-row{
-  display:flex; gap:12px;
+  display:flex;
+  gap:12px;
   margin-top: 18px;
   flex-wrap:wrap;
 }
@@ -252,17 +258,8 @@ a:hover{opacity:.92}
   letter-spacing:.01em;
   box-shadow: 0 14px 40px rgba(0,0,0,.40);
   overflow:hidden;
-
-  flex: 1 1 220px;
-  min-width: 220px;
-  max-width: 360px;
-}
-
-.btn-sub{
-  font-size: 13px;
-  opacity:.82;
-  margin-top: 3px;
-  font-weight:600;
+  flex: 1 1 240px;
+  min-width: 240px;
 }
 
 .btn:before{
@@ -271,34 +268,49 @@ a:hover{opacity:.92}
   background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0));
   opacity:.65;
 }
-
 .btn:hover{transform: translateY(-1px)}
+.btn-sub{font-size:13px; opacity:.82; margin-top:3px; font-weight:600;}
 
-.btn-blue{
-  background: linear-gradient(135deg, rgba(58,160,255,.18), rgba(0,0,0,.18));
-}
-.btn-red{
-  background: linear-gradient(135deg, rgba(255,58,58,.14), rgba(0,0,0,.18));
-}
+.btn-blue{background: linear-gradient(135deg, rgba(58,160,255,.18), rgba(0,0,0,.18));}
+.btn-ghost{background: rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.16);}
 
-/* NEW: professional outline button */
-.btn-ghost{
-  background: rgba(0,0,0,.18);
-  border:1px solid rgba(255,255,255,.16);
+.hero-divider{
+  margin-top: 18px;
+  height: 1px;
+  background: rgba(255,255,255,.08);
 }
 
-.hero-foot{
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255,255,255,.08);
+.hero-secondary{
+  margin-top: 18px;
+}
+
+.hero-secondary-title{
+  font-family: var(--font-display);
+  letter-spacing:.10em;
+  font-weight: 800;
+  font-size: 13px;
+  color: rgba(232,238,252,.88);
+}
+
+.hero-secondary-text{
+  margin: 10px 0 0;
+  color: rgba(232,238,252,.78);
+  line-height: 1.6;
+  font-size: 14px;
+  max-width: 75ch;
+}
+
+.hero-cycle{
+  margin-top: 12px;
   color: rgba(232,238,252,.72);
   font-size: 13px;
 }
 
-/* Right card: simple ops summary */
-.hero-card{
+/* Right side card */
+.hero-side{display:block;}
+.side-card{
   border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.10);
   background: rgba(8,10,18,.38);
   box-shadow: 0 26px 80px rgba(0,0,0,.45);
   backdrop-filter: blur(16px);
@@ -306,42 +318,42 @@ a:hover{opacity:.92}
   padding: 26px 24px;
 }
 
-.hero-card-title{
+.side-title{
   font-family: var(--font-display);
-  letter-spacing: .10em;
+  letter-spacing:.10em;
   font-weight: 800;
   font-size: 14px;
   margin: 0;
 }
 
-.hero-card-sub{
+.side-sub{
   margin-top: 8px;
   color: rgba(232,238,252,.72);
   font-size: 13px;
   line-height: 1.55;
 }
 
-.hero-card-grid{
+.side-list{
   margin-top: 14px;
   display:grid;
   gap: 10px;
 }
 
-.hc-item{
+.side-item{
   padding: 12px 12px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.18);
 }
 
-.hc-k{
+.side-k{
   font-size: 11px;
   letter-spacing: .10em;
   text-transform: uppercase;
   color: rgba(232,238,252,.62);
 }
 
-.hc-v{
+.side-v{
   margin-top: 6px;
   font-size: 13px;
   color: rgba(232,238,252,.82);
@@ -349,35 +361,15 @@ a:hover{opacity:.92}
   font-weight: 600;
 }
 
-.hero-card-divider{
+.side-divider{
   height: 1px;
   background: rgba(255,255,255,.08);
   margin: 14px 0 12px;
 }
 
-.hero-card-mini{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap: 12px;
-}
+.side-link{display:inline-flex; align-items:center; justify-content:center; width:100%;}
 
-.hero-card-mini-k{
-  font-size: 11px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: rgba(232,238,252,.62);
-  white-space: nowrap;
-}
-
-.hero-card-mini-v{
-  font-size: 13px;
-  color: rgba(232,238,252,.82);
-  line-height: 1.45;
-  font-weight: 600;
-  text-align:right;
-}
-
+/* Keep your fade */
 .hero-bottom-fade{
   position:absolute; left:0; right:0; bottom:-2px;
   height: 140px;
@@ -386,7 +378,7 @@ a:hover{opacity:.92}
 }
 
 /* =========================
-   REST (UNCHANGED FROM YOU)
+   REST (YOUR ORIGINAL)
    ========================= */
 .section{padding: 84px 18px;}
 .section.alt{
@@ -552,6 +544,7 @@ details p{margin: 10px 0 0; color: rgba(232,238,252,.76); line-height: 1.55}
 /* Responsive */
 @media (max-width: 980px){
   .hero-layout{grid-template-columns: 1fr; gap: 14px;}
+  .kpi-grid{grid-template-columns: 1fr;}
   .proof-grid{grid-template-columns: 1fr;}
   .timeline{grid-template-columns: 1fr 1fr;}
 }
@@ -561,13 +554,13 @@ details p{margin: 10px 0 0; color: rgba(232,238,252,.76); line-height: 1.55}
   .menu-btn{display:block}
   .hero{padding: 88px 14px 52px}
   .hero-panel{padding: 28px 22px}
-  .hero-card{padding: 20px 18px}
+  .side-card{padding: 20px 18px}
   .grid-2{grid-template-columns: 1fr}
   .timeline{grid-template-columns: 1fr}
-  .btn{min-width: 100%; max-width: none}
+  .btn{min-width: 100%;}
 }
 
-/* --- FX stays BEHIND content --- */
+/* FX stays behind content */
 .hero { position: relative; }
 .hero-bg { z-index: -3 !important; }
 .hero:before { z-index: -2 !important; }
