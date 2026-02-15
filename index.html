@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0f1a" />
-  <meta name="description" content="LUNC TEAMS — Validator Operations. Two validator programs: WallStreetBets (USTC burns + LUNC airdrops) and Kraken Node (LUNC burns + USTC airdrops). Revenue-funded burns + airdrops with on-chain proof." />
-  <title>LUNC TEAMS — Validator Operations</title>
+  <meta name="description" content="LUNC TEAMS — Validator Teams. Joint validator effort to burn $LUNC and $USTC and airdrop $LUNC + $USTC to delegators. Transparent, revenue-funded cycles with on-chain proof." />
+  <title>LUNC TEAMS — Validator Teams</title>
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <canvas id="stars"></canvas>
   <div class="scanlines" aria-hidden="true"></div>
@@ -24,17 +25,15 @@
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-text">
         <span class="brand-title">LUNC TEAMS</span>
-        <span class="brand-sub">Validator Operations</span>
+        <span class="brand-sub">Validator Teams</span>
       </span>
     </a>
 
     <nav class="nav">
-      <a href="#missions">Validators</a>
+      <a href="#validators">Validators</a>
       <a href="#how">How it works</a>
-      <a href="#independence">Independence</a>
       <a href="#proof">Proof</a>
       <a href="#faq">FAQ</a>
-      <a href="#coming-soon">Coming soon</a>
     </nav>
 
     <button id="menuBtn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
@@ -47,69 +46,46 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-bg" aria-hidden="true"></div>
 
+      <!-- keep sparks if your script.js uses it; otherwise you can delete this whole hero-fx block -->
       <div class="hero-fx" aria-hidden="true">
         <canvas id="sparks"></canvas>
       </div>
 
       <div class="hero-inner">
         <div class="hero-top">
-          <div class="chips">
-            <span class="chip chip-red">WallStreetBets: Daily $USTC burns → Monthly $LUNC airdrops</span>
-            <span class="chip chip-blue">Kraken Node: Daily $LUNC burns → Monthly $USTC airdrops</span>
-          </div>
-
           <h1 class="hero-title">
-            <span class="glow">WallStreetBets</span>
-            <span class="vs">+</span>
-            <span class="glow blue">Kraken Node</span>
+            <span class="glow">Validator Teams</span>
           </h1>
 
           <p class="hero-tagline">
-            Two validator programs. One mission. Burns and delegator airdrops funded by validator revenue.
+            A joint validator effort to burn <strong>$LUNC</strong> and <strong>$USTC</strong>, and reward delegators with
+            <strong>$LUNC</strong> + <strong>$USTC</strong> airdrops — funded by validator revenue and proven on-chain.
           </p>
-
-          <div class="cta-row">
-            <a class="btn btn-red" href="#missions">
-              Stake WallStreetBets
-              <span class="btn-sub">LUNC Airdrops</span>
-            </a>
-            <a class="btn btn-blue" href="#missions">
-              Stake Kraken Node
-              <span class="btn-sub">USTC Airdrops</span>
-            </a>
-          </div>
 
           <div class="hero-metrics">
             <div class="metric">
-              <div class="metric-k">Monthly cycle</div>
-              <div class="metric-v">Snapshot → Burn → Airdrop</div>
+              <div class="metric-k">Daily burns</div>
+              <div class="metric-v">$USTC + $LUNC</div>
             </div>
             <div class="metric">
-              <div class="metric-k">Transparency</div>
+              <div class="metric-k">Monthly rewards</div>
+              <div class="metric-v">$LUNC + $USTC airdrops</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k">Verification</div>
               <div class="metric-v">TX links + cycle report</div>
             </div>
-            <div class="metric">
-              <div class="metric-k">Infrastructure</div>
-              <div class="metric-v">Unified Tier-3 co-location</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-logos">
-          <div class="logo-card red">
-            <img src="assets/red.png" alt="WallStreetBets validator logo" />
-            <div class="logo-card-text">
-              <div class="logo-card-title">WallStreetBets</div>
-              <div class="logo-card-sub">LUNC Airdrops</div>
-            </div>
           </div>
 
-          <div class="logo-card blue">
-            <img src="assets/blue.png" alt="Kraken Node validator logo" />
-            <div class="logo-card-text">
-              <div class="logo-card-title">Kraken Node</div>
-              <div class="logo-card-sub">USTC Airdrops</div>
-            </div>
+          <div class="cta-row">
+            <a class="btn btn-blue" href="#validators">
+              View Validators
+              <span class="btn-sub">Benefits + rules</span>
+            </a>
+            <a class="btn btn-red" href="https://t.me/luncteam" target="_blank" rel="noreferrer">
+              Join Telegram
+              <span class="btn-sub">Proof posted every cycle</span>
+            </a>
           </div>
         </div>
       </div>
@@ -118,68 +94,64 @@
     </section>
 
     <!-- VALIDATORS -->
-    <section id="missions" class="section">
+    <section id="validators" class="section">
       <div class="section-head">
-        <h2 class="section-title">Choose your validator</h2>
+        <h2 class="section-title">Our validators</h2>
         <p class="section-sub">
-          Two validator programs under LUNC TEAMS — same transparency standards, different burn + airdrop focus.
+          Two validator programs under one standard: burns + airdrops + transparent proof.
         </p>
       </div>
 
       <div class="grid-2">
-        <article id="wsb" class="card card-red reveal">
+        <article class="card reveal">
           <header class="card-head">
-            <div class="badge badge-red">⚡ WallStreetBets</div>
-            <h3 class="card-title">LUNC Airdrops</h3>
-            <p class="card-sub">Daily USTC burns + monthly LUNC rewards.</p>
+            <h3 class="card-title">WallStreetBets</h3>
+            <p class="card-sub">Designed to support USTC recovery + reward LUNC delegators.</p>
           </header>
 
           <div class="card-body">
             <ul class="bullets">
-              <li><strong>Burn:</strong> $USTC (funded from validator revenue)</li>
-              <li><strong>Airdrop:</strong> $LUNC to delegators (monthly)</li>
+              <li><strong>Daily burn:</strong> $USTC (funded from validator revenue)</li>
+              <li><strong>Monthly airdrop:</strong> $LUNC to delegators</li>
+              <li><strong>No claiming:</strong> stake and receive (where supported)</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
             <div class="callout">
-              <div class="callout-title">What you’re backing</div>
-              <p>
-                Consistent USTC burns with a clean, predictable monthly LUNC airdrop to delegators.
-              </p>
+              <div class="callout-title">Best for</div>
+              <p>Delegators who want ongoing USTC burn support plus monthly LUNC rewards.</p>
             </div>
           </div>
         </article>
 
-        <article id="kraken" class="card card-blue reveal">
+        <article class="card reveal">
           <header class="card-head">
-            <div class="badge badge-blue">💎 Kraken Node</div>
-            <h3 class="card-title">USTC Airdrops</h3>
-            <p class="card-sub">Daily LUNC burns + monthly USTC rewards.</p>
+            <h3 class="card-title">Kraken Node</h3>
+            <p class="card-sub">Designed to reduce LUNC supply + reward qualified delegators with USTC.</p>
           </header>
 
           <div class="card-body">
             <ul class="bullets">
-              <li><strong>Burn:</strong> $LUNC (funded from validator revenue)</li>
-              <li><strong>Airdrop:</strong> $USTC to delegators (monthly)</li>
+              <li><strong>Daily burn:</strong> $LUNC (funded from validator revenue)</li>
+              <li><strong>Monthly airdrop:</strong> $USTC to delegators</li>
+              <li><strong>No claiming:</strong> stake and receive (where supported)</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
             <div class="callout">
-              <div class="callout-title">Blue airdrop rule</div>
-              <p>
-                Minimum <strong>40M $LUNC</strong> staked to qualify for <strong>$USTC airdrops</strong>.
-              </p>
+              <div class="callout-title">USTC airdrop rule</div>
+              <p>Minimum <strong>40M $LUNC</strong> staked to qualify for <strong>$USTC</strong> airdrops.</p>
             </div>
           </div>
         </article>
       </div>
 
       <div class="note reveal">
-        <div class="note-title">Why we airdrop</div>
+        <div class="note-title">Why delegate here</div>
         <p>
-          We use airdrops to attract and reward long-term delegators — so we can fund consistent burns that support
-          long-term chain health. Two validator programs run in parallel with the same transparency standards:
-          snapshot → burn → airdrop → report.
+          Delegations help fund consistent burns and consistent rewards. We keep it simple:
+          transparent cycles, verifiable transactions, and clear rules. If we change a schedule or rule,
+          it’s announced in advance and reflected in the cycle report.
         </p>
       </div>
     </section>
@@ -188,7 +160,7 @@
     <section id="how" class="section alt">
       <div class="section-head">
         <h2 class="section-title">How it works</h2>
-        <p class="section-sub">Simple. Verifiable. Repeated.</p>
+        <p class="section-sub">One repeatable cycle. Public proof.</p>
       </div>
 
       <div class="timeline reveal">
@@ -196,42 +168,38 @@
           <div class="step-n">01</div>
           <div class="step-c">
             <h3>Snapshot</h3>
-            <p>We record eligible delegations at a published time each cycle.</p>
+            <p>We record eligible delegations at a published time for the monthly cycle.</p>
           </div>
         </div>
+
         <div class="step">
           <div class="step-n">02</div>
           <div class="step-c">
             <h3>Burn</h3>
-            <p>Each validator executes its burn (WallStreetBets: $USTC / Kraken Node: $LUNC), funded from validator revenue.</p>
+            <p>Revenue-funded burns are executed (USTC via WallStreetBets, LUNC via Kraken Node).</p>
           </div>
         </div>
+
         <div class="step">
           <div class="step-n">03</div>
           <div class="step-c">
             <h3>Airdrop</h3>
-            <p>Each validator distributes its monthly airdrop (WallStreetBets: $LUNC / Kraken Node: $USTC) to delegators.</p>
+            <p>Monthly airdrops are sent to eligible delegators ($LUNC and/or $USTC depending on validator and rules).</p>
           </div>
         </div>
+
         <div class="step">
           <div class="step-n">04</div>
           <div class="step-c">
-            <h3>Telegram Proof</h3>
-            <p>We publish transaction links and a cycle report so anyone can verify on-chain on our Telegram.</p>
+            <h3>Report</h3>
+            <p>We post TX links + a simple cycle summary so anyone can verify on-chain.</p>
           </div>
         </div>
       </div>
 
-      <div class="note reveal">
-        <div class="note-title">No smoke, no mirrors</div>
-        <p>
-          Everything that matters is on-chain: burns, airdrops, and the schedule. Your delegation is your vote.
-        </p>
-      </div>
-
       <div class="wallets reveal" aria-label="Wallet links">
-        <div class="wallets-title">Wallets to stake with</div>
-        <div class="wallets-sub tiny">Use any of these wallets to stake to WallStreetBets or Kraken Node.</div>
+        <div class="wallets-title">How to stake</div>
+        <div class="wallets-sub tiny">Use any of these wallets to stake to a validator.</div>
         <div class="wallets-row">
           <a class="wallet-btn" href="https://www.keplr.app/" target="_blank" rel="noreferrer">Keplr</a>
           <a class="wallet-btn" href="https://station.hexxagon.io/" target="_blank" rel="noreferrer">Station</a>
@@ -240,51 +208,12 @@
       </div>
     </section>
 
-    <!-- INDEPENDENCE / INFRA -->
-    <section id="independence" class="section">
-      <div class="section-head">
-        <h2 class="section-title">Separate operators, shared backbone</h2>
-        <p class="section-sub">
-          Designed separation for accountability — while keeping enterprise-grade uptime and low latency.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card reveal">
-          <h3>Why we’re separated</h3>
-          <p>
-            WallStreetBets and Kraken Node are operated by different operators within the same validator group.
-            Each maintains independent keys, policies, and execution — so no single operator controls both programs.
-          </p>
-          <ul class="bullets">
-            <li>Independent validator keys</li>
-            <li>Independent burn + airdrop execution</li>
-            <li>Independent operational decisions</li>
-          </ul>
-        </article>
-
-        <article class="card reveal">
-          <h3>Why we share infrastructure</h3>
-          <p>
-            Our infrastructure is hosted in a unified Tier-3 co-location suite to ensure maximum
-            cross-node communication speed and low-latency oracle voting. Sharing the facility improves reliability —
-            without combining operator control.
-          </p>
-          <ul class="bullets">
-            <li>Tier-3 power, cooling, and upstream connectivity</li>
-            <li>Standardized monitoring and security baseline</li>
-            <li>Reduced jitter for consistent oracle participation</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
     <!-- PROOF -->
-    <section id="proof" class="section alt">
+    <section id="proof" class="section">
       <div class="section-head">
         <h2 class="section-title">Proof & transparency</h2>
         <p class="section-sub">
-          We publish transaction links and a cycle report after each cycle — on our Telegram.
+          Every cycle we publish transaction links and a short report on Telegram.
         </p>
       </div>
 
@@ -292,7 +221,7 @@
         <div class="proof-card">
           <h3>Cycle report</h3>
           <p>
-            Snapshot time, totals, and a short summary for the month — one place to follow the snapshot, burns, and airdrops.
+            Snapshot time, burn totals, airdrop totals, and quick notes — one place to follow each cycle.
           </p>
           <a class="link" href="https://t.me/luncteam" target="_blank" rel="noreferrer">Open Telegram →</a>
         </div>
@@ -300,68 +229,62 @@
         <div class="proof-card">
           <h3>On-chain transactions</h3>
           <p>
-            Burns and airdrops are verifiable by anyone. We post the burn + airdrop transaction links for both validators
-            in our Telegram after each cycle — open them in your explorer of choice to verify.
+            Burns and airdrops are verifiable by anyone. We share TX links after each cycle so you can check them in your explorer of choice.
           </p>
         </div>
+      </div>
+
+      <div class="note reveal">
+        <div class="note-title">Simple promise</div>
+        <p>
+          We don’t ask you to trust us — we ask you to verify. If it’s not on-chain, it doesn’t count.
+        </p>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section">
+    <section id="faq" class="section alt">
       <div class="section-head">
         <h2 class="section-title">FAQ</h2>
-        <p class="section-sub">Quick answers for new delegators.</p>
+        <p class="section-sub">Quick answers for delegators.</p>
       </div>
 
       <div class="faq reveal" role="list">
         <details open>
-          <summary>Are WallStreetBets and Kraken Node run by the same person?</summary>
+          <summary>What do I get by delegating?</summary>
           <p>
-            No. WallStreetBets and Kraken Node are operated by different operators inside a single group.
-            We share a co-location backbone, but maintain independent keys and independent execution.
+            You help fund revenue-backed burns and you may qualify for monthly airdrops depending on the validator program and rules.
+            Proof is published each cycle with TX links and a report.
           </p>
         </details>
 
         <details>
           <summary>Where do burns and airdrops come from?</summary>
           <p>
-            Burns and airdrops are funded from our validator revenue (commission and operational allocations).
-            After each cycle we publish transaction links and a short report on Telegram so anyone can verify on-chain.
+            They’re funded from validator revenue (commission and operational allocations). We publish TX links after each cycle so anyone can verify.
           </p>
         </details>
 
         <details>
           <summary>How often do you run cycles?</summary>
           <p>
-            Monthly by default: snapshot → burn → airdrop → proof posted to Telegram. If the schedule changes, it will be announced in advance.
+            Monthly by default: snapshot → burn → airdrop → report. Any schedule change is announced in advance.
           </p>
         </details>
 
         <details>
-          <summary>Can you guarantee results like repeg?</summary>
+          <summary>What is the 40M rule?</summary>
           <p>
-            No one can guarantee a repeg or price outcomes. What we can do is support recovery with consistent, transparent execution:
-            WallStreetBets burns $USTC and airdrops $LUNC; Kraken Node burns $LUNC and airdrops $USTC — all funded from validator revenue
-            and verifiable via transaction links and cycle reports posted on Telegram.
+            The <strong>$USTC</strong> airdrop program on Kraken Node requires a minimum of <strong>40M $LUNC</strong> staked to qualify.
           </p>
         </details>
-      </div>
-    </section>
 
-    <!-- COMING SOON -->
-    <section id="coming-soon" class="section alt">
-      <div class="section-head">
-        <h2 class="section-title">Coming soon</h2>
-        <p class="section-sub">Keep an eye on the horizon.</p>
-      </div>
-
-      <div class="coming-soon reveal" role="note" aria-label="Coming soon teaser">
-        <div class="coming-text">
-          <h3>Something is brewing…</h3>
-          <p>A new drop is stalking the help desk. When it lands, you’ll know. Stay tuned in our Telegram.</p>
-        </div>
-        <img class="shib" src="assets/bnb.png" alt="BNB coin teaser" />
+        <details>
+          <summary>Can you guarantee price outcomes or a repeg?</summary>
+          <p>
+            No one can guarantee outcomes. What we can do is execute consistent, transparent burns and rewards — and publish proof on-chain every cycle.
+          </p>
+        </details>
       </div>
     </section>
 
@@ -370,7 +293,7 @@
       <div class="footer-inner">
         <div class="footer-left">
           <div class="footer-title">LUNC TEAMS</div>
-          <div class="footer-sub">Validator Operations — burns + airdrops with proof</div>
+          <div class="footer-sub">Validator Teams — burns + airdrops with proof</div>
         </div>
         <div class="footer-right">
           <a href="#top">Back to top</a>
@@ -378,6 +301,7 @@
           <a href="https://t.me/luncteam" target="_blank" rel="noreferrer">Telegram</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span class="tiny">© <span id="year"></span> LUNC TEAMS. Not financial advice. Verify on-chain.</span>
       </div>
@@ -385,12 +309,10 @@
   </main>
 
   <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="#missions">Validators</a>
+    <a href="#validators">Validators</a>
     <a href="#how">How it works</a>
-    <a href="#independence">Independence</a>
     <a href="#proof">Proof</a>
     <a href="#faq">FAQ</a>
-    <a href="#coming-soon">Coming soon</a>
   </div>
 
   <script src="script.js"></script>
