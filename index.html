@@ -4,14 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0f1a" />
-  <meta name="description" content="LUNC TEAMS — Validator Teams. Joint validator effort to burn $LUNC and $USTC and reward delegators with $LUNC + $USTC airdrops. High uptime, tier infrastructure, and on-chain proof every cycle." />
+  <meta name="description" content="LUNC TEAMS — Validator Teams. Burns + airdrops funded by validator revenue, with on-chain proof every cycle. High-uptime operations and low-latency infrastructure." />
   <title>LUNC TEAMS — Validator Teams</title>
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -30,7 +29,7 @@
     </a>
 
     <nav class="nav">
-      <a href="#validators">Programs</a>
+      <a href="#programs">Programs</a>
       <a href="#how">How it works</a>
       <a href="#proof">Proof</a>
       <a href="#faq">FAQ</a>
@@ -51,70 +50,84 @@
       </div>
 
       <div class="hero-inner">
-        <div class="hero-top hero-top-pro">
-          <div class="hero-header">
-            <div class="chips hero-pills">
-              <span class="chip">🔥 Daily burns</span>
-              <span class="chip">🎁 Monthly airdrops</span>
-              <span class="chip">✅ On-chain proof</span>
-            </div>
+        <div class="hero-layout">
+          <!-- LEFT -->
+          <div class="hero-panel">
+            <div class="hero-eyebrow">LUNC TEAMS • Validator Operations</div>
 
-            <h1 class="hero-title hero-title-pro">Validator Teams</h1>
+            <h1 class="hero-h1">
+              Burns + Airdrops,<br/>
+              verified on-chain.
+            </h1>
 
-            <p class="hero-tagline hero-tagline-pro">
-              A joint validator effort to burn <strong>$LUNC</strong> and <strong>$USTC</strong>, and reward delegators with
-              <strong>$LUNC</strong> + <strong>$USTC</strong> airdrops — funded by validator revenue and proven on-chain.
+            <p class="hero-lead">
+              We run validator programs that burn <strong>$LUNC</strong> and <strong>$USTC</strong>, and reward delegators with
+              <strong>$LUNC</strong> + <strong>$USTC</strong> airdrops — funded by validator revenue and proven with transaction links each cycle.
             </p>
 
-            <ul class="hero-points">
-              <li><strong>Whale-friendly operations</strong> — stable performance and consistent participation.</li>
-              <li><strong>Top-tier uptime</strong> — 24/7 monitoring with fast incident response.</li>
-              <li><strong>Pro infrastructure</strong> — low-latency setup with redundancy and reliability.</li>
-            </ul>
+            <div class="hero-badges" aria-label="Key benefits">
+              <span class="badge-pill">High-uptime focus</span>
+              <span class="badge-pill">Low-latency infrastructure</span>
+              <span class="badge-pill">Whale-ready operations</span>
+            </div>
 
-            <div class="cta-row hero-cta-pro">
-              <a class="btn btn-blue" href="#validators">
+            <div class="cta-row hero-cta">
+              <a class="btn btn-blue" href="#programs">
                 View Programs
                 <span class="btn-sub">Benefits + rules</span>
               </a>
-              <a class="btn btn-red" href="https://t.me/luncteam" target="_blank" rel="noreferrer">
+
+              <a class="btn btn-ghost" href="https://t.me/luncteam" target="_blank" rel="noreferrer">
                 Join Telegram
-                <span class="btn-sub">TX proof every cycle</span>
+                <span class="btn-sub">Cycle proof posted</span>
               </a>
             </div>
-          </div>
 
-          <div class="hero-features">
-            <div class="feature">
-              <div class="feature-k">High uptime</div>
-              <div class="feature-v">24/7 monitoring + fast response</div>
-            </div>
-            <div class="feature">
-              <div class="feature-k">Top-tier infrastructure</div>
-              <div class="feature-v">Tier-3 co-location • low latency • redundancy</div>
-            </div>
-            <div class="feature">
-              <div class="feature-k">Whale-ready</div>
-              <div class="feature-v">Stable ops • consistent participation</div>
+            <div class="hero-foot">
+              Monthly cycle: <strong>Snapshot → Burn → Airdrop → Report + TX links</strong>
             </div>
           </div>
 
-          <div class="hero-cycle">
-            Monthly cycle: <strong>Snapshot → Burn → Airdrop → Report + TX links</strong>
-          </div>
+          <!-- RIGHT -->
+          <aside class="hero-card" aria-label="Operations card">
+            <div class="hero-card-title">Operations</div>
+            <div class="hero-card-sub">Built for stability and large delegations.</div>
+
+            <div class="hero-card-grid">
+              <div class="hc-item">
+                <div class="hc-k">Infrastructure</div>
+                <div class="hc-v">Tier-3 co-location • redundancy • low latency</div>
+              </div>
+              <div class="hc-item">
+                <div class="hc-k">Uptime</div>
+                <div class="hc-v">24/7 monitoring • fast response • reliable performance</div>
+              </div>
+              <div class="hc-item">
+                <div class="hc-k">Transparency</div>
+                <div class="hc-v">TX links + cycle report every month</div>
+              </div>
+            </div>
+
+            <div class="hero-card-divider"></div>
+
+            <div class="hero-card-mini">
+              <div class="hero-card-mini-k">Cycle</div>
+              <div class="hero-card-mini-v">Snapshot → Burn → Airdrop → Report</div>
+            </div>
+          </aside>
         </div>
       </div>
 
       <div class="hero-bottom-fade" aria-hidden="true"></div>
     </section>
 
-    <!-- VALIDATORS -->
-    <section id="validators" class="section">
+    <!-- PROGRAMS -->
+    <section id="programs" class="section">
       <div class="section-head">
         <h2 class="section-title">Validator programs</h2>
         <p class="section-sub">
           Two programs under one standard: revenue-funded burns + delegator rewards + transparent proof.
-          Validator names and logos can change — the programs and rules stay clear.
+          Validator names/logos can change — programs and rules remain clear.
         </p>
       </div>
 
@@ -129,13 +142,12 @@
             <ul class="bullets">
               <li><strong>Burn:</strong> $USTC (funded from validator revenue)</li>
               <li><strong>Airdrop:</strong> $LUNC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> uptime-first, monitored 24/7</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
             <div class="callout">
               <div class="callout-title">Best for</div>
-              <p>Delegators who want ongoing USTC burn support plus monthly LUNC rewards.</p>
+              <p>Delegators who want consistent USTC burn support plus monthly LUNC rewards.</p>
             </div>
 
             <div class="tiny">Current validator name: <strong>WallStreetBets</strong></div>
@@ -152,7 +164,6 @@
             <ul class="bullets">
               <li><strong>Burn:</strong> $LUNC (funded from validator revenue)</li>
               <li><strong>Airdrop:</strong> $USTC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> low latency, consistent participation</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
@@ -170,7 +181,7 @@
         <div class="note-title">Why stake with us</div>
         <p>
           Delegations help fund consistent burns and consistent rewards. We keep it simple: transparent cycles,
-          verifiable transactions, and clear rules. If a schedule or rule changes, it’s announced in advance and reflected in the cycle report.
+          verifiable transactions, and clear rules. Changes are announced in advance and reflected in the cycle report.
         </p>
       </div>
     </section>
@@ -201,14 +212,14 @@
           <div class="step-n">03</div>
           <div class="step-c">
             <h3>Airdrop</h3>
-            <p>Monthly airdrops are sent to eligible delegators ($LUNC and/or $USTC depending on program and rules).</p>
+            <p>Monthly airdrops are sent to eligible delegators (per program rules).</p>
           </div>
         </div>
         <div class="step">
           <div class="step-n">04</div>
           <div class="step-c">
             <h3>Report</h3>
-            <p>We publish TX links and a cycle report so anyone can verify on-chain on our Telegram.</p>
+            <p>We publish TX links and a cycle report so anyone can verify on-chain.</p>
           </div>
         </div>
       </div>
@@ -234,13 +245,13 @@
       <div class="proof-grid reveal">
         <div class="proof-card">
           <h3>Cycle report</h3>
-          <p>Snapshot time, burn totals, airdrop totals, and quick notes — one place to follow each cycle.</p>
+          <p>Snapshot time, burn totals, airdrop totals, and notes — one place to follow each cycle.</p>
           <a class="link" href="https://t.me/luncteam" target="_blank" rel="noreferrer">Open Telegram →</a>
         </div>
 
         <div class="proof-card">
           <h3>On-chain transactions</h3>
-          <p>Burns and airdrops are verifiable by anyone. We share TX links after each cycle so you can check them in your explorer of choice.</p>
+          <p>Burns and airdrops are verifiable by anyone. We share TX links after each cycle.</p>
         </div>
       </div>
 
@@ -260,17 +271,12 @@
       <div class="faq reveal" role="list">
         <details open>
           <summary>What do I get by delegating?</summary>
-          <p>
-            You help fund revenue-backed burns and may qualify for monthly airdrops depending on the program and rules.
-            Proof is published each cycle with TX links and a report.
-          </p>
+          <p>You help fund revenue-backed burns and may qualify for monthly airdrops depending on the program and rules. Proof is published each cycle.</p>
         </details>
 
         <details>
           <summary>Where do burns and airdrops come from?</summary>
-          <p>
-            They’re funded from validator revenue (commission and operational allocations). We publish TX links after each cycle so anyone can verify.
-          </p>
+          <p>They’re funded from validator revenue. We publish TX links after each cycle so anyone can verify.</p>
         </details>
 
         <details>
@@ -284,8 +290,8 @@
         </details>
 
         <details>
-          <summary>Can you guarantee price outcomes or a repeg?</summary>
-          <p>No one can guarantee outcomes. What we can do is execute consistent, transparent burns and rewards — and publish proof on-chain every cycle.</p>
+          <summary>Can you guarantee price outcomes?</summary>
+          <p>No one can guarantee outcomes. What we can do is execute consistent, transparent burns and rewards — with proof each cycle.</p>
         </details>
       </div>
     </section>
@@ -310,7 +316,7 @@
   </main>
 
   <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="#validators">Programs</a>
+    <a href="#programs">Programs</a>
     <a href="#how">How it works</a>
     <a href="#proof">Proof</a>
     <a href="#faq">FAQ</a>
