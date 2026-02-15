@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0f1a" />
-  <meta name="description" content="LUNC TEAMS — Validator Teams. Joint validator effort to burn $LUNC and $USTC and reward delegators with $LUNC + $USTC airdrops. High-uptime infrastructure, low latency, and on-chain proof every cycle." />
+  <meta name="description" content="LUNC TEAMS — Validator Teams. Joint validator effort to burn $LUNC and $USTC and reward delegators with $LUNC + $USTC airdrops. High uptime, tier infrastructure, and on-chain proof every cycle." />
   <title>LUNC TEAMS — Validator Teams</title>
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -30,7 +30,7 @@
     </a>
 
     <nav class="nav">
-      <a href="#validators">Validators</a>
+      <a href="#validators">Programs</a>
       <a href="#how">How it works</a>
       <a href="#proof">Proof</a>
       <a href="#faq">FAQ</a>
@@ -42,8 +42,8 @@
   </header>
 
   <main id="top">
-    <!-- HERO (REBUILT, CLEAN, NO LOGOS) -->
-    <section class="hero" aria-label="Hero">
+    <!-- HERO (PRO / CLEAN) -->
+    <section class="hero hero-pro" aria-label="Hero">
       <div class="hero-bg" aria-hidden="true"></div>
 
       <div class="hero-fx" aria-hidden="true">
@@ -51,101 +51,56 @@
       </div>
 
       <div class="hero-inner">
-        <!-- NOTE: inline styles only (no styles.css edits needed) -->
-        <div style="
-          max-width: 980px;
-          margin: 0 auto;
-          padding: 72px 18px 38px;
-        ">
-          <div style="
-            max-width: 860px;
-            padding: 34px 28px;
-            border-radius: 22px;
-            border: 1px solid rgba(255,255,255,0.10);
-            background: linear-gradient(90deg, rgba(255,70,70,0.12), rgba(60,120,255,0.10));
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-          ">
-            <div style="
-              display:flex;
-              flex-wrap:wrap;
-              gap:10px;
-              margin-bottom:14px;
-              font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-              font-size: 12px;
-              color: rgba(255,255,255,0.85);
-            ">
-              <span style="padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);">🔥 Daily burns</span>
-              <span style="padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);">🎁 Monthly airdrops</span>
-              <span style="padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.10);">✅ On-chain proof</span>
+        <div class="hero-top hero-top-pro">
+          <div class="hero-header">
+            <div class="chips hero-pills">
+              <span class="chip">🔥 Daily burns</span>
+              <span class="chip">🎁 Monthly airdrops</span>
+              <span class="chip">✅ On-chain proof</span>
             </div>
 
-            <h1 style="
-              margin: 0 0 10px;
-              font-family: Orbitron, Inter, system-ui, sans-serif;
-              font-weight: 800;
-              letter-spacing: 0.6px;
-              line-height: 1.05;
-              font-size: clamp(36px, 5vw, 56px);
-              color: rgba(255,255,255,0.95);
-              text-shadow: 0 0 18px rgba(120,170,255,0.20);
-            ">
-              Validator Teams
-            </h1>
+            <h1 class="hero-title hero-title-pro">Validator Teams</h1>
 
-            <p style="
-              margin: 0 0 18px;
-              max-width: 70ch;
-              font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-              font-size: 16px;
-              line-height: 1.65;
-              color: rgba(255,255,255,0.82);
-            ">
+            <p class="hero-tagline hero-tagline-pro">
               A joint validator effort to burn <strong>$LUNC</strong> and <strong>$USTC</strong>, and reward delegators with
               <strong>$LUNC</strong> + <strong>$USTC</strong> airdrops — funded by validator revenue and proven on-chain.
             </p>
 
-            <div class="cta-row" style="margin: 0 0 18px;">
+            <ul class="hero-points">
+              <li><strong>Whale-friendly operations</strong> — stable performance and consistent participation.</li>
+              <li><strong>Top-tier uptime</strong> — 24/7 monitoring with fast incident response.</li>
+              <li><strong>Pro infrastructure</strong> — low-latency setup with redundancy and reliability.</li>
+            </ul>
+
+            <div class="cta-row hero-cta-pro">
               <a class="btn btn-blue" href="#validators">
-                View Validators
+                View Programs
                 <span class="btn-sub">Benefits + rules</span>
               </a>
               <a class="btn btn-red" href="https://t.me/luncteam" target="_blank" rel="noreferrer">
                 Join Telegram
-                <span class="btn-sub">Proof posted every cycle</span>
+                <span class="btn-sub">TX proof every cycle</span>
               </a>
             </div>
+          </div>
 
-            <div style="
-              display:grid;
-              grid-template-columns: repeat(3, minmax(0,1fr));
-              gap: 10px;
-              margin-top: 10px;
-              font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            ">
-              <div style="padding:12px 12px;border-radius:16px;background:rgba(0,0,0,0.20);border:1px solid rgba(255,255,255,0.08);">
-                <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-bottom:4px;">High uptime</div>
-                <div style="font-size:13px;color:rgba(255,255,255,0.88);line-height:1.35;">24/7 monitoring + fast response</div>
-              </div>
-              <div style="padding:12px 12px;border-radius:16px;background:rgba(0,0,0,0.20);border:1px solid rgba(255,255,255,0.08);">
-                <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-bottom:4px;">Top-tier infrastructure</div>
-                <div style="font-size:13px;color:rgba(255,255,255,0.88);line-height:1.35;">Tier-3 co-location • low latency • redundancy</div>
-              </div>
-              <div style="padding:12px 12px;border-radius:16px;background:rgba(0,0,0,0.20);border:1px solid rgba(255,255,255,0.08);">
-                <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-bottom:4px;">Whale-ready</div>
-                <div style="font-size:13px;color:rgba(255,255,255,0.88);line-height:1.35;">Stable ops • consistent participation</div>
-              </div>
+          <div class="hero-features">
+            <div class="feature">
+              <div class="feature-k">High uptime</div>
+              <div class="feature-v">24/7 monitoring + fast response</div>
             </div>
+            <div class="feature">
+              <div class="feature-k">Top-tier infrastructure</div>
+              <div class="feature-v">Tier-3 co-location • low latency • redundancy</div>
+            </div>
+            <div class="feature">
+              <div class="feature-k">Whale-ready</div>
+              <div class="feature-v">Stable ops • consistent participation</div>
+            </div>
+          </div>
 
-            <div style="
-              margin-top: 16px;
-              font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-              font-size: 13px;
-              color: rgba(255,255,255,0.72);
-            ">
-              Monthly cycle: <strong>Snapshot → Burn → Airdrop → Report + TX links</strong>
-            </div>
+          <div class="hero-cycle">
+            Monthly cycle: <strong>Snapshot → Burn → Airdrop → Report + TX links</strong>
           </div>
         </div>
       </div>
@@ -158,8 +113,8 @@
       <div class="section-head">
         <h2 class="section-title">Validator programs</h2>
         <p class="section-sub">
-          Two validator programs under one standard: burns + airdrops + transparent proof.
-          (Logos can change — the benefits and rules stay clear.)
+          Two programs under one standard: revenue-funded burns + delegator rewards + transparent proof.
+          Validator names and logos can change — the programs and rules stay clear.
         </p>
       </div>
 
@@ -174,7 +129,7 @@
             <ul class="bullets">
               <li><strong>Burn:</strong> $USTC (funded from validator revenue)</li>
               <li><strong>Airdrop:</strong> $LUNC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> high-uptime focus, 24/7 monitoring</li>
+              <li><strong>Ops:</strong> uptime-first, monitored 24/7</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
@@ -183,9 +138,7 @@
               <p>Delegators who want ongoing USTC burn support plus monthly LUNC rewards.</p>
             </div>
 
-            <div class="tiny" style="margin-top:10px;opacity:.75;">
-              Current validator name: <strong>WallStreetBets</strong>
-            </div>
+            <div class="tiny">Current validator name: <strong>WallStreetBets</strong></div>
           </div>
         </article>
 
@@ -199,7 +152,7 @@
             <ul class="bullets">
               <li><strong>Burn:</strong> $LUNC (funded from validator revenue)</li>
               <li><strong>Airdrop:</strong> $USTC to delegators (monthly)</li>
-              <li><strong>Ops:</strong> low-latency infra, consistent participation</li>
+              <li><strong>Ops:</strong> low latency, consistent participation</li>
               <li><strong>Proof:</strong> TX links + cycle report posted on Telegram</li>
             </ul>
 
@@ -208,9 +161,7 @@
               <p>Minimum <strong>40M $LUNC</strong> staked to qualify for <strong>$USTC</strong> airdrops.</p>
             </div>
 
-            <div class="tiny" style="margin-top:10px;opacity:.75;">
-              Current validator name: <strong>Kraken Node</strong>
-            </div>
+            <div class="tiny">Current validator name: <strong>Kraken Node</strong></div>
           </div>
         </article>
       </div>
@@ -359,7 +310,7 @@
   </main>
 
   <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-    <a href="#validators">Validators</a>
+    <a href="#validators">Programs</a>
     <a href="#how">How it works</a>
     <a href="#proof">Proof</a>
     <a href="#faq">FAQ</a>
